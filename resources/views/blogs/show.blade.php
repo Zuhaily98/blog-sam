@@ -17,6 +17,8 @@
                     <br>
                     Body: {{ $blog->body}}
                     <br>
+                    Ditulis oleh: {{ $blog->user_id ? $blog->penulis: "Entah la"}}
+                    <br>
                     <a href="{{route('blog:index')}}">Back</a>
                 </div>
             </div>

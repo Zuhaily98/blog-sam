@@ -22,6 +22,7 @@
                                     <th>Title</th>
                                     <th>Created</th>
                                     <th>Submitted by</th>
+                                    <th>Action</th>
                                     <th></th>
                                 </tr>
                             </thead>
@@ -31,6 +32,7 @@
                                         <td>{{ $blog->id}}</td>
                                         <td>{{ $blog->title}}</td>
                                         <td>{{ $blog->created_at->diffForHumans()}}</td>
+                                        <td>{{ $blog->user_id ? $blog->penulis : "Entah la"}}</td>
                                         <td>
                                             <a href="{{route('blog:show',$blog)}}" class="btn btn-primary">View</a>
                                             <a href="{{route('blog:edit',$blog)}}" class="btn btn-success">Edit</a>

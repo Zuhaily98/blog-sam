@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 class BlogController extends Controller
 {
+    //need to be logged in
+    /**public function __construct()
+    {
+        $this->middleware('auth');
+    }*/
+    
     /**
      * Display a listing of the resource.
      *
@@ -50,7 +56,11 @@ class BlogController extends Controller
         // $blog->save();
 
         //Method 2 - Mass Assignment
-        $blog = Blog::create($request->only('title','body'));
+        //$blog = Blog::create($request->only('title','body'));
+
+        //Method 2 with relationshop 1:M
+        $user = auth()->user();
+        $blog = $user->blogs()->create($request->only('title','body'));
 
         // return view('blogs.index');
         return redirect()->route('blog:index')->with(['alert-type' => 'alert-success','alert'=> 'Your blog saved']);

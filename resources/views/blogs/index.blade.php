@@ -32,8 +32,9 @@
                                         <td>{{ $blog->title}}</td>
                                         <td>{{ $blog->created_at->diffForHumans()}}</td>
                                         <td>
-                                            <a href="" class="btn btn-primary">Edit</a>
-                                            <a href="" class="btn btn-danger"
+                                            <a href="{{route('blog:show',$blog)}}" class="btn btn-primary">View</a>
+                                            <a href="{{route('blog:edit',$blog)}}" class="btn btn-success">Edit</a>
+                                            <a href="{{route('blog:padam',$blog)}}" class="btn btn-danger"
                                                 onclick="return confirm('Are you sure?')">Delete</a>
                                         </td>
                                     </tr>
